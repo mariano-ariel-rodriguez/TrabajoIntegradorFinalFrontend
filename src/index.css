@@ -1,0 +1,100 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "DM Sans", sans-serif;
+    text-decoration: none;
+}
+
+/* Variables para tema oscuro */
+:root {
+  --primary-color: #00a884;
+  --background-main: #111b21;
+  --background-panel: #202c33;
+  --background-input: #2a3942;
+  --background-hover: #374045;
+  --background-message-own: #005c4b;
+  --background-message-other: #202c33;
+  --text-primary: #e9edef;
+  --text-secondary: #8696a0;
+  --border-color: #3b4a54;
+  --border-item: #2a3942;
+}
+
+/* Variables para tema claro */
+.light-mode {
+  --primary-color: #00a884;
+  --background-main: #f0f2f5;
+  --background-panel: #ffffff;
+  --background-input: #f0f2f5;
+  --background-hover: #e4e6ea;
+  --background-message-own: #d9fdd3;
+  --background-message-other: #ffffff;
+  --text-primary: #111b21;
+  --text-secondary: #667781;
+  --border-color: #e4e6ea;
+  --border-item: #e4e6ea;
+}
+
+.app-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.contact-screen {
+  width: 400px;
+  min-width: 300px;
+}
+
+.empty-screen, .chat-screen {
+  flex: 1;
+  min-width: 400px;
+}
+
+@media screen and (max-width: 1200px) {
+  .contact-screen {
+    width: 350px;
+    min-width: 280px;
+  }
+  
+  .empty-screen, .chat-screen {
+    min-width: 350px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .contact-screen {
+    width: 320px;
+    min-width: 260px;
+  }
+  
+  .empty-screen, .chat-screen {
+    min-width: 300px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  
+  .contact-screen {
+    width: 100vw;
+    min-width: auto;
+  }
+  
+  .empty-screen, .chat-screen {
+    width: 100vw;
+    min-width: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contact-screen, .chat-screen {
+    width: 100vw;
+  }
+}

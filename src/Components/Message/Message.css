@@ -1,0 +1,141 @@
+.message-container {
+  display: flex;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.message-own {
+  justify-content: flex-end;
+}
+
+.message-own .message-bubble {
+  background-color: var(--background-message-own);
+  border-radius: 7.5px;
+  max-width: 65%;
+  margin-left: 35%;
+}
+
+.message-other {
+  justify-content: flex-start;
+}
+
+.message-other .message-bubble {
+  background-color: var(--background-message-other);
+  border-radius: 7.5px;
+  max-width: 65%;
+  margin-right: 35%;
+}
+
+.message-bubble {
+  padding: 6px 7px 8px 9px;
+  position: relative;
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+}
+
+.message-bubble:hover {
+  background-color: var(--background-hover);
+}
+
+.message-text {
+  color: var(--text-primary);
+  font-size: 14px;
+  margin: 0;
+  margin-bottom: 2px;
+}
+
+.message-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.message-time {
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+.message-status {
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+.message-delete-button {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #d73502;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-delete-button:hover {
+  background-color: #b82e02;
+}
+
+.message-selected {
+  background-color: rgba(0, 168, 132, 0.1);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .message-bubble {
+    max-width: 75%;
+    padding: 5px 6px 7px 8px;
+  }
+  
+  .message-own .message-bubble {
+    margin-left: 25%;
+  }
+  
+  .message-other .message-bubble {
+    margin-right: 25%;
+  }
+  
+  .message-text {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .message-bubble {
+    max-width: 85%;
+    padding: 4px 5px 6px 7px;
+  }
+  
+  .message-own .message-bubble {
+    margin-left: 15%;
+  }
+  
+  .message-other .message-bubble {
+    margin-right: 15%;
+  }
+  
+  .message-text {
+    font-size: 13px;
+  }
+  
+  .message-time {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .message-bubble {
+    max-width: 90%;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  
+  .message-text {
+    font-size: 12px;
+  }
+}

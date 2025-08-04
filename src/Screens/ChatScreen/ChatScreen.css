@@ -1,0 +1,172 @@
+.chat-screen {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--background-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  max-height: 800px;
+  background-color: var(--background-main);
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 18px rgba(11, 20, 26, 0.2);
+}
+
+.chat-header {
+  background-color: var(--background-panel);
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+}
+
+.chat-back-button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.chat-back-button:hover {
+  background-color: var(--background-hover);
+}
+
+.chat-contact-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.chat-contact-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.chat-contact-details h1 {
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 2px;
+}
+
+.chat-contact-status {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.chat-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-action-button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 400;
+}
+
+.chat-action-button:hover {
+  background-color: var(--background-hover);
+  color: var(--text-primary);
+}
+
+.delete-all-button {
+  background-color: #d73502;
+  color: #ffffff;
+}
+
+.delete-all-button:hover {
+  background-color: #b82e02;
+}
+
+.chat-messages-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-main);
+}
+
+/* Responsive */
+@media screen and (min-width: 768px) {
+  .chat-container {
+    border-radius: 10px;
+    height: 90vh;
+    max-height: 800px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .chat-screen {
+    padding: 0;
+  }
+  
+  .chat-container {
+    height: 100vh;
+    border-radius: 0;
+  }
+  
+  .chat-header {
+    padding: 8px 16px;
+  }
+  
+  .chat-contact-details h1 {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .chat-header {
+    padding: 6px 12px;
+    min-height: 56px;
+  }
+  
+  .chat-contact-avatar {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .chat-contact-details h1 {
+    font-size: 14px;
+  }
+  
+  .chat-contact-status {
+    font-size: 12px;
+  }
+  
+  .chat-action-button {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .chat-header {
+    padding: 4px 8px;
+  }
+  
+  .chat-contact-info {
+    gap: 8px;
+  }
+  
+  .chat-actions {
+    gap: 4px;
+  }
+}
