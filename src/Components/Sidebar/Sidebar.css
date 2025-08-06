@@ -1,13 +1,13 @@
+/* Sidebar.css - Sin border-radius como WhatsApp Web original */
 .sidebar {
     width: 70px;
-    height: 100vh;
-    background-color: #202c33;
+    background-color: var(--background-panel);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
-    border-right: 1px solid #3b4a54;
+    border-right: 1px solid var(--border-color);
 }
 
 .sidebar-top {
@@ -27,7 +27,7 @@
     background: none;
     border: none;
     border-radius: 50%;
-    color: #8696a0;
+    color: var(--text-secondary);
     font-size: 20px;
     display: flex;
     align-items: center;
@@ -35,53 +35,17 @@
 }
 
 .sidebar-icon:hover {
-    background-color: #374045;
-    color: #e9edef;
+    background-color: var(--background-hover);
+    color: var(--text-primary);
 }
 
 .sidebar-icon.active {
-    background-color: #00a884;
+    background-color: var(--primary-color);
     color: #ffffff;
 }
 
-.light-mode .sidebar {
-    background-color: #f0f2f5;
-    border-right: 1px solid #e4e6ea;
-}
-
-.light-mode .sidebar-icon {
-    color: #54656f;
-}
-
-.light-mode .sidebar-icon:hover {
-    background-color: #e4e6ea;
-    color: #111b21;
-}
-
-.light-mode .sidebar-icon.active {
-    background-color: #00a884;
-    color: #ffffff;
-}
-
-/* Responsive */
-@media screen and (max-width: 768px) {
-    .sidebar {
-        width: 60px;
-        padding: 15px 0;
-    }
-
-    .sidebar-top {
-        gap: 15px;
-    }
-
-    .sidebar-icon {
-        width: 35px;
-        height: 35px;
-        font-size: 18px;
-    }
-}
-
-@media screen and (max-width: 480px) {
+/* En móvil ocultar */
+@media screen and (max-width: 739px) {
     .sidebar {
         display: none;
     }

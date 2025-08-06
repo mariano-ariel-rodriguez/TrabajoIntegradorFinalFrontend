@@ -6,25 +6,32 @@ import EmptyScreen from './Screens/EmptyScreen/EmptyScreen'
 import Sidebar from './Components/Sidebar/Sidebar'
 
 const App = () => {
-    const [isDarkMode, setIsDarkMode] = useState(true)
+    const [isDarkMode, setIsDarkMode] = useState(false)
 
     const toggleTheme = () => {
         setIsDarkMode(!isDarkMode)
     }
 
+    let themeClass
+    if (isDarkMode) {
+        themeClass = 'dark-mode'
+    } else {
+        themeClass = 'light-mode'
+    }
+
     return (
-        <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
+        <div className={themeClass}>
             <div className="app-layout">
                 <Sidebar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
                 <ContactScreen />
                 <Routes>
                     <Route 
                         path='/' 
-                        element={<EmptyScreen />} 
+                        element={<EmptyScreen/>} 
                     />
                     <Route 
                         path='/contact/:contact_id/messages' 
-                        element={<ChatScreen />} 
+                        element={<ChatScreen/>} 
                     />
                 </Routes>
             </div>

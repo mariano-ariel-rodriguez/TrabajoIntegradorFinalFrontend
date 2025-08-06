@@ -1,3 +1,4 @@
+/* EmptyScreen.css - Sin border-radius como WhatsApp Web original */
 .empty-screen {
   flex: 1;
   display: flex;
@@ -13,12 +14,6 @@
   padding: 40px 20px;
 }
 
-.empty-screen-icon {
-  font-size: 80px;
-  color: var(--text-secondary);
-  margin-bottom: 24px;
-}
-
 .empty-screen-title {
   color: var(--text-primary);
   font-size: 32px;
@@ -32,8 +27,8 @@
   margin: 0;
 }
 
-/* Responsive */
-@media screen and (max-width: 768px) {
+/* En móvil ocultar */
+@media screen and (max-width: 739px) {
   .empty-screen {
     display: none;
   }

@@ -9,23 +9,8 @@
     text-decoration: none;
 }
 
-/* Variables para tema oscuro */
+/* Variables para tema claro (por defecto) */
 :root {
-  --primary-color: #00a884;
-  --background-main: #111b21;
-  --background-panel: #202c33;
-  --background-input: #2a3942;
-  --background-hover: #374045;
-  --background-message-own: #005c4b;
-  --background-message-other: #202c33;
-  --text-primary: #e9edef;
-  --text-secondary: #8696a0;
-  --border-color: #3b4a54;
-  --border-item: #2a3942;
-}
-
-/* Variables para tema claro */
-.light-mode {
   --primary-color: #00a884;
   --background-main: #f0f2f5;
   --background-panel: #ffffff;
@@ -39,62 +24,101 @@
   --border-item: #e4e6ea;
 }
 
+/* Variables para tema oscuro */
+.dark-mode {
+  --primary-color: #00a884;
+  --background-main: #111b21;
+  --background-panel: #202c33;
+  --background-input: #2a3942;
+  --background-hover: #374045;
+  --background-message-own: #005c4b;
+  --background-message-other: #202c33;
+  --text-primary: #e9edef;
+  --text-secondary: #8696a0;
+  --border-color: #3b4a54;
+  --border-item: #2a3942;
+}
+
+/* MOBILE FIRST - 320px en adelante */
 .app-layout {
-  display: flex;
-  height: 100vh;
+  display: block;
+  height: 100dvh;
   width: 100vw;
+  overflow: hidden;
 }
 
+/* Sidebar oculto en mobile */
+.sidebar {
+  display: none;
+}
+
+/* Solo ContactScreen visible en mobile */
 .contact-screen {
-  width: 400px;
-  min-width: 300px;
+  width: 100vw;
+  height: 100dvh;
+  display: block;
 }
 
-.empty-screen, .chat-screen {
-  flex: 1;
-  min-width: 400px;
+/* Chat/Empty ocultos en mobile inicialmente */
+.empty-screen, 
+.chat-screen {
+  display: none;
 }
 
-@media screen and (max-width: 1200px) {
-  .contact-screen {
-    width: 350px;
-    min-width: 280px;
+/* TABLET - 740px en adelante */
+@media screen and (min-width: 740px) {
+  .app-layout {
+    display: flex;
+    height: 100dvh;
   }
-  
-  .empty-screen, .chat-screen {
-    min-width: 350px;
-  }
-}
 
-@media screen and (max-width: 1000px) {
+  /* Mostrar sidebar */
+  .sidebar {
+    display: flex;
+    width: 70px;
+    height: 100dvh;
+    flex-shrink: 0;
+  }
+
+  /* ContactScreen ocupa espacio fijo */
   .contact-screen {
     width: 320px;
-    min-width: 260px;
+    height: 100dvh;
+    flex-shrink: 0;
   }
-  
-  .empty-screen, .chat-screen {
-    min-width: 300px;
+
+  /* Chat/Empty visible y ocupa resto del espacio */
+  .empty-screen, 
+  .chat-screen {
+    display: flex;
+    flex: 1;
+    height: 100dvh;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .sidebar {
-    display: none;
+/* DESKTOP PEQUEÑO - 1024px en adelante */
+@media screen and (min-width: 1024px) {
+  .contact-screen {
+    width: 380px;
+  }
+}
+
+/* DESKTOP GRANDE - 1200px en adelante */
+@media screen and (min-width: 1200px) {
+  .contact-screen {
+    width: 420px;
+  }
+}
+
+/* DESKTOP EXTRA GRANDE - 1400px en adelante */
+@media screen and (min-width: 1400px) {
+  .app-layout {
+    max-width: 1600px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   }
   
   .contact-screen {
-    width: 100vw;
-    min-width: auto;
-  }
-  
-  .empty-screen, .chat-screen {
-    width: 100vw;
-    min-width: auto;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .contact-screen, .chat-screen {
-    width: 100vw;
+    width: 450px;
   }
 }
