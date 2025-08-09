@@ -1,8 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import './ContactItem.css';
 
-const ContactItem = ({ contact }) => {
+const ContactItem = ({ contact, setChatActive, selectedContactId, setSelectedContactId }) => {
+    // Verificar si este contacto está seleccionado
+    const isSelected = Number(selectedContactId) === Number(contact.id);
+    
     // Obtener el último mensaje para mostrarlo
     let lastMessage;
     if (contact.messages && contact.messages.length > 0) {
@@ -20,9 +23,29 @@ const ContactItem = ({ contact }) => {
     } else {
         statusClass = 'status-offline';
     }
+    
+    // Determinar la clase del item
+    let itemClass = 'contact-item';
+    if (isSelected) {
+        itemClass = 'contact-item selected';
+    }
+
+    // Manejar el click para activar el chat en móvil y seleccionar contacto
+    const handleClick = () => {
+        if (setChatActive) {
+            setChatActive(true);
+        }
+        if (setSelectedContactId) {
+            setSelectedContactId(contact.id);
+        }
+    };
 
     return (
-        <Link to={`/contact/${contact.id}/messages`} className="contact-item">
+        <Link 
+            to={`/contact/${contact.id}/messages`} 
+            className={itemClass}
+            onClick={handleClick}
+        >
             <img 
                 src={contact.avatar} 
                 alt={contact.name} 
@@ -30,7 +53,7 @@ const ContactItem = ({ contact }) => {
             />
             <div className="contact-info">
                 <div className="contact-header">
-                    <h2 className="contact-name">{contact.name}</h2>
+                    <h3 className="contact-name">{contact.name}</h3>
                     <span className="contact-time">{contact.lastConnection}</span>
                 </div>
                 <div className="contact-details">
@@ -45,4 +68,4 @@ const ContactItem = ({ contact }) => {
     );
 };
 
-export default ContactItem
+export default ContactItem;

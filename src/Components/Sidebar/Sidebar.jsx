@@ -2,6 +2,14 @@ import React from 'react'
 import './Sidebar.css'
 
 const Sidebar = ({ isDarkMode, toggleTheme }) => {
+    // Determinar qué icono mostrar
+    let themeIcon
+    if (isDarkMode) {
+        themeIcon = <i className="bi bi-sun"></i>
+    } else {
+        themeIcon = <i className="bi bi-moon"></i>
+    }
+
     return (
         <div className="sidebar">
             <div className="sidebar-top">
@@ -20,11 +28,7 @@ const Sidebar = ({ isDarkMode, toggleTheme }) => {
             </div>
             <div className="sidebar-bottom">
                 <button className="sidebar-icon" onClick={toggleTheme}>
-                    {isDarkMode ? (
-                        <i className="bi bi-sun"></i>
-                    ) : (
-                        <i className="bi bi-moon"></i>
-                    )}
+                    {themeIcon}
                 </button>
             </div>
         </div>

@@ -5,120 +5,174 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: "DM Sans", sans-serif;
+    font-family: "Inter", sans-serif;
     text-decoration: none;
 }
 
-/* Variables para tema claro (por defecto) */
+/* Variables para tema claro (por defecto) - colores exactos de WhatsApp Web */
 :root {
   --primary-color: #00a884;
-  --background-main: #f0f2f5;
+  --secondary-color: #008069;
+  --background-main: #f5f1eb;
   --background-panel: #ffffff;
-  --background-input: #f0f2f5;
-  --background-hover: #e4e6ea;
-  --background-message-own: #d9fdd3;
+  --background-sidebar: #f7f5f2;
+  --background-empty: #f7f5f2;
+  --background-input: #ffffff;
+  --background-hover: #f5f4f2;
+  --background-message-own: #d8fcd2;
   --background-message-other: #ffffff;
-  --text-primary: #111b21;
-  --text-secondary: #667781;
-  --border-color: #e4e6ea;
-  --border-item: #e4e6ea;
+  --text-primary: #0a0a0a;
+  --text-secondary: #616161;
+  --text-lighter: #8696a0;
+  --text-placeholder: #666666;
+  --text-header-title: #1dab62;
+  --text-message-own: #0a0a0a;
+  --text-message-other: #0a0a0a;
+  --border-color: #e9edef;
+  --border-sidebar: #d1d7db;
+  --icon-color: #54656f;
+  --shadow-panel: rgba(11, 20, 26, 0.11);
 }
 
 /* Variables para tema oscuro */
 .dark-mode {
   --primary-color: #00a884;
-  --background-main: #111b21;
-  --background-panel: #202c33;
-  --background-input: #2a3942;
-  --background-hover: #374045;
-  --background-message-own: #005c4b;
-  --background-message-other: #202c33;
-  --text-primary: #e9edef;
-  --text-secondary: #8696a0;
-  --border-color: #3b4a54;
-  --border-item: #2a3942;
+  --secondary-color: #008069;
+  --background-main: #161717;
+  --background-panel: #161717;
+  --background-sidebar: #1d1f1f;
+  --background-empty: #161717;
+  --background-input: #242626;
+  --background-hover: #2e2f2f;
+  --background-message-own: #144d37;
+  --background-message-other: #242626;
+  --text-primary: #fafafa;
+  --text-secondary: #999999;
+  --text-lighter: #667781;
+  --text-placeholder: #a7a8a8;
+  --text-header-title: #ffffff;
+  --text-message-own: #fafafa;
+  --text-message-other: #ebfad7;
+  --border-color: #222d34;
+  --border-sidebar: #222d34;
+  --icon-color: #aebac1;
+  --shadow-panel: rgba(0, 0, 0, 0.3);
 }
 
-/* MOBILE FIRST - 320px en adelante */
+body {
+  background-color: var(--background-main);
+  color: var(--text-primary);
+}
+
+/* Layout principal */
 .app-layout {
-  display: block;
+  display: flex;
   height: 100dvh;
   width: 100vw;
   overflow: hidden;
+  background-color: var(--background-main);
 }
 
-/* Sidebar oculto en mobile */
+/* MOBILE FIRST - 320px a 759px */
+/* En móvil, sidebar siempre visible pero estrecho */
 .sidebar {
-  display: none;
-}
-
-/* Solo ContactScreen visible en mobile */
-.contact-screen {
-  width: 100vw;
+  width: 60px;
   height: 100dvh;
-  display: block;
+  flex-shrink: 0;
+  background-color: var(--background-sidebar);
+  border-right: 1px solid var(--border-sidebar);
+  box-sizing: border-box;
 }
 
-/* Chat/Empty ocultos en mobile inicialmente */
+/* ContactScreen en móvil ocupa el resto del ancho */
+.contact-screen {
+  flex: 1;
+  height: 100dvh;
+  background-color: var(--background-panel);
+  position: relative;
+  z-index: 1;
+}
+
+/* Chat/Empty en móvil se superponen cuando hay chat activo */
 .empty-screen, 
 .chat-screen {
+  position: absolute;
+  top: 0;
+  left: 60px; /* Ancho del sidebar */
+  right: 0;
+  height: 100dvh;
+  background-color: var(--background-panel);
+  z-index: 2;
   display: none;
 }
 
-/* TABLET - 740px en adelante */
-@media screen and (min-width: 740px) {
-  .app-layout {
-    display: flex;
-    height: 100dvh;
-  }
+/* Cuando hay un chat activo en móvil */
+.chat-active .empty-screen,
+.chat-active .chat-screen {
+  display: flex;
+}
 
-  /* Mostrar sidebar */
+.chat-active .contact-screen {
+  display: none;
+}
+
+/* TABLET/DESKTOP - 760px en adelante */
+@media screen and (min-width: 760px) {
   .sidebar {
-    display: flex;
-    width: 70px;
-    height: 100dvh;
-    flex-shrink: 0;
+    width: 60px;
   }
 
-  /* ContactScreen ocupa espacio fijo */
+  /* ContactScreen con ancho fijo REDUCIDO */
   .contact-screen {
-    width: 320px;
-    height: 100dvh;
+    width: 30%;
+    max-width: 400px;
+    min-width: 280px;
     flex-shrink: 0;
+    position: static;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+  }
+  
+  /* En desktop, contact-screen siempre visible incluso con chat activo */
+  .chat-active .contact-screen {
+    display: flex;
   }
 
-  /* Chat/Empty visible y ocupa resto del espacio */
+  /* Chat/Empty ocupan el 70% del espacio */
   .empty-screen, 
   .chat-screen {
-    display: flex;
+    position: static;
+    left: auto;
+    right: auto;
     flex: 1;
-    height: 100dvh;
+    display: flex;
   }
 }
 
-/* DESKTOP PEQUEÑO - 1024px en adelante */
+/* DESKTOP - 1024px en adelante */
 @media screen and (min-width: 1024px) {
   .contact-screen {
-    width: 380px;
+    width: 320px; /* Ancho fijo más pequeño */
   }
 }
 
-/* DESKTOP GRANDE - 1200px en adelante */
-@media screen and (min-width: 1200px) {
-  .contact-screen {
-    width: 420px;
-  }
-}
-
-/* DESKTOP EXTRA GRANDE - 1400px en adelante */
-@media screen and (min-width: 1400px) {
+/* DESKTOP GRANDE - 1440px en adelante */
+@media screen and (min-width: 1440px) {
   .app-layout {
     max-width: 1600px;
     margin: 0 auto;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 18px -9px var(--shadow-panel);
   }
   
   .contact-screen {
-    width: 450px;
+    width: 340px; /* Ancho fijo más pequeño */
+  }
+}
+
+/* DESKTOP EXTRA GRANDE - 2000px */
+@media screen and (min-width: 1920px) {
+  .contact-screen {
+    width: 360px; /* Ancho fijo más pequeño */
   }
 }

@@ -1,35 +1,101 @@
-/* EmptyScreen.css - Sin border-radius como WhatsApp Web original */
 .empty-screen {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--background-main);
+  background-color: var(--background-empty);
   border-left: 1px solid var(--border-color);
+  min-height: 100vh;
+}
+
+/* Tema oscuro */
+.dark-mode .empty-screen {
+  background-color: var(--background-main);
 }
 
 .empty-screen-content {
   text-align: center;
-  max-width: 400px;
+  max-width: 560px;
   padding: 40px 20px;
 }
 
+.empty-screen-icon {
+  width: 360px;
+  height: 210px;
+  margin: 0 auto 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-screen-image {
+  width: 100%;
+  height: 100%;
+}
+
 .empty-screen-title {
-  color: var(--text-primary);
-  font-size: 32px;
+  color: #41525d;
+  font-size: 36px;
   font-weight: 300;
-  margin: 0 0 12px 0;
+  margin: 0 0 24px 0;
+  line-height: 1.2;
+}
+
+/* Tema oscuro */
+.dark-mode .empty-screen-title {
+  color: var(--text-primary);
 }
 
 .empty-screen-subtitle {
-  color: var(--text-secondary);
+  color: #667781;
   font-size: 14px;
-  margin: 0;
+  line-height: 20px;
+  margin: 0 0 32px 0;
+  font-weight: 400;
 }
 
-/* En móvil ocultar */
-@media screen and (max-width: 739px) {
+/* Tema oscuro */
+.dark-mode .empty-screen-subtitle {
+  color: var(--text-secondary);
+}
+
+.empty-screen-footer {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #8696a0;
+  font-size: 14px;
+  padding-top: 0;
+  border-top: none;
+}
+
+.empty-screen-footer i {
+  font-size: 14px;
+  opacity: 1;
+}
+
+/* Responsive */
+@media screen and (max-width: 759px) {
   .empty-screen {
-    display: none;
+    border-left: none;
+    position: static;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .empty-screen-icon {
+    width: 280px;
+    height: 165px;
+    margin-bottom: 24px;
+  }
+  
+  .empty-screen-title {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+  
+  .empty-screen-subtitle {
+    font-size: 13px;
+    margin-bottom: 24px;
   }
 }

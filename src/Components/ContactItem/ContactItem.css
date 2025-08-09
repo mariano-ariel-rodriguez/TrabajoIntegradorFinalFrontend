@@ -2,32 +2,40 @@
   display: flex;
   align-items: center;
   padding: 12px 16px;
-  border-bottom: 1px solid var(--border-item);
+  border-bottom: 1px solid var(--border-color);
   text-decoration: none;
   color: var(--text-primary);
-  background-color: transparent;
+  background-color: var(--background-panel);
+  cursor: pointer;
 }
 
 .contact-item:hover {
   background-color: var(--background-hover);
 }
 
+.contact-item:active,
+.contact-item.selected {
+  background-color: var(--background-hover);
+}
+
 .contact-avatar {
-  width: 50px;
-  height: 50px;
+  width: 49px;
+  height: 49px;
   border-radius: 50%;
-  margin-right: 12px;
+  margin-right: 13px;
+  flex-shrink: 0;
 }
 
 .contact-info {
   flex: 1;
+  min-width: 0;
 }
 
 .contact-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
 }
 
 .contact-name {
@@ -35,29 +43,37 @@
   font-weight: 400;
   color: var(--text-primary);
   margin: 0;
+  overflow: hidden;
 }
 
 .contact-time {
   font-size: 12px;
   color: var(--text-secondary);
   margin-left: 8px;
+  flex-shrink: 0;
 }
 
 .contact-details {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
 }
 
 .contact-last-message {
   font-size: 14px;
   color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
 }
 
 .contact-status {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
+  flex-shrink: 0;
 }
 
 .status-indicator {
@@ -80,9 +96,9 @@
 }
 
 /* Responsive */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 759px) {
   .contact-item {
-    padding: 12px 16px;
+    padding: 10px 14px;
   }
   
   .contact-avatar {
@@ -94,28 +110,8 @@
   .contact-name {
     font-size: 15px;
   }
-}
-
-@media screen and (max-width: 480px) {
-  .contact-item {
-    padding: 10px 12px;
-  }
-  
-  .contact-avatar {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-  }
-  
-  .contact-name {
-    font-size: 14px;
-  }
   
   .contact-last-message {
     font-size: 13px;
-  }
-  
-  .contact-time {
-    font-size: 11px;
   }
 }

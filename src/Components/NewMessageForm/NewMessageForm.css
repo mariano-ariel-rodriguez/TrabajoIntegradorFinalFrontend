@@ -1,25 +1,52 @@
 .new-message-form {
   background-color: var(--background-panel);
-  padding: 10px 20px;
+  padding: 10px 16px;
   border-top: 1px solid var(--border-color);
+  min-height: 62px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  min-height: 62px;
 }
 
 .message-input-container {
   flex: 1;
   display: flex;
+  flex-direction: row;
   align-items: center;
   background-color: var(--background-input);
   border-radius: 21px;
-  padding: 0 16px;
+  border: 1px solid var(--border-color);
+  padding: 0 4px;
   min-height: 42px;
+  gap: 2px;
+}
+
+.emoji-button,
+.attach-button {
+  background: none;
+  border: none;
+  color: var(--icon-color);
+  font-size: 22px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.emoji-button:hover,
+.attach-button:hover {
+  background-color: var(--background-hover);
 }
 
 .message-input-label {
-  display: none;
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .message-input {
@@ -28,92 +55,105 @@
   border: none;
   color: var(--text-primary);
   font-size: 15px;
-  padding: 9px 0;
+  padding: 8px 8px;
+  line-height: 20px;
   max-height: 100px;
   min-height: 20px;
 }
 
+.message-input:focus {
+  outline: none;
+}
+
+.message-input::placeholder {
+  color: var(--text-placeholder);
+  opacity: 1;
+}
+
 .send-button {
-  background-color: var(--primary-color);
+  background: none;
   border: none;
+  color: var(--icon-color);
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .send-button:hover {
-  background-color: #017561;
-}
-
-.send-button:disabled {
   background-color: var(--background-hover);
 }
 
 /* Responsive */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 759px) {
   .new-message-form {
-    padding: 8px 16px;
-    min-height: 58px;
+    padding: 8px 12px;
+    min-height: 56px;
   }
   
-  .message-input-container {
-    padding: 0 14px;
+  .message-input-wrapper {
     min-height: 38px;
+  }
+  
+  .attach-button {
+    width: 36px;
+    height: 32px;
+    font-size: 22px;
+  }
+  
+  .emoji-button {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
   }
   
   .message-input {
     font-size: 14px;
-    padding: 8px 0;
+    padding: 7px 4px;
   }
   
   .send-button {
-    width: 38px;
-    height: 38px;
-    font-size: 16px;
+    width: 36px;
+    height: 32px;
+    font-size: 18px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .new-message-form {
-    padding: 6px 12px;
-    min-height: 54px;
+    padding: 6px 10px;
+    min-height: 52px;
   }
   
-  .message-input-container {
-    padding: 0 12px;
+  .message-input-wrapper {
     min-height: 36px;
+  }
+  
+  .attach-button {
+    width: 32px;
+    height: 30px;
+    font-size: 20px;
+  }
+  
+  .emoji-button {
+    width: 26px;
+    height: 26px;
+    font-size: 16px;
   }
   
   .message-input {
     font-size: 13px;
-    padding: 7px 0;
+    padding: 6px 4px;
   }
   
   .send-button {
-    width: 36px;
-    height: 36px;
-    font-size: 15px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .new-message-form {
-    padding: 4px 8px;
-    gap: 6px;
-  }
-  
-  .message-input-container {
-    padding: 0 10px;
-  }
-  
-  .send-button {
-    width: 34px;
-    height: 34px;
-    font-size: 14px;
+    width: 32px;
+    height: 30px;
+    font-size: 16px;
   }
 }

@@ -1,35 +1,35 @@
 .message-container {
   display: flex;
-  margin-bottom: 8px;
+  margin-bottom: 2px;
   position: relative;
 }
 
 .message-own {
   justify-content: flex-end;
-}
-
-.message-own .message-bubble {
-  background-color: var(--background-message-own);
-  border-radius: 7.5px;
-  max-width: 65%;
-  margin-left: 35%;
+  padding-right: 8px;
 }
 
 .message-other {
   justify-content: flex-start;
-}
-
-.message-other .message-bubble {
-  background-color: var(--background-message-other);
-  border-radius: 7.5px;
-  max-width: 65%;
-  margin-right: 35%;
+  padding-left: 8px;
 }
 
 .message-bubble {
   padding: 6px 7px 8px 9px;
   position: relative;
-  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+  box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+  min-width: 60px;
+  max-width: 65%;
+}
+
+.message-own .message-bubble {
+  background-color: var(--background-message-own);
+  border-radius: 7.5px 7.5px 0 7.5px;
+}
+
+.message-other .message-bubble {
+  background-color: var(--background-message-other);
+  border-radius: 7.5px 7.5px 7.5px 0;
 }
 
 .message-bubble:hover {
@@ -37,105 +37,125 @@
 }
 
 .message-text {
-  color: var(--text-primary);
-  font-size: 14px;
+  font-size: 14.2px;
+  line-height: 19px;
   margin: 0;
-  margin-bottom: 2px;
+  padding-right: 60px;
+}
+
+.message-own .message-text {
+  color: var(--text-message-own);
+}
+
+.message-other .message-text {
+  color: var(--text-message-other);
 }
 
 .message-info {
+  position: absolute;
+  bottom: 4px;
+  right: 7px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 4px;
-  margin-top: 2px;
+  gap: 2px;
+  padding-left: 10px;
 }
 
 .message-time {
   color: var(--text-secondary);
   font-size: 11px;
+  opacity: 0.65;
 }
 
 .message-status {
   color: var(--text-secondary);
-  font-size: 11px;
+  font-size: 14px;
+  opacity: 0.65;
 }
 
-.message-delete-button {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background-color: #d73502;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.message-delete-button:hover {
-  background-color: #b82e02;
+.message-status.visto {
+  color: #53bdeb;
 }
 
 .message-selected {
-  background-color: rgba(0, 168, 132, 0.1);
+  background-color: rgba(0, 168, 132, 0.15);
+}
+
+.message-options {
+  position: absolute;
+  top: -35px;
+  right: 0;
+  display: flex;
+  gap: 4px;
+  background: var(--background-panel);
+  padding: 4px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.message-delete-button,
+.message-close-button {
+  background-color: var(--background-hover);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.message-delete-button:hover {
+  background-color: rgba(215, 53, 2, 0.1);
+  color: #d73502;
+}
+
+.message-close-button:hover {
+  background-color: var(--background-hover);
 }
 
 /* Responsive */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 759px) {
   .message-bubble {
     max-width: 75%;
     padding: 5px 6px 7px 8px;
   }
   
-  .message-own .message-bubble {
-    margin-left: 25%;
-  }
-  
-  .message-other .message-bubble {
-    margin-right: 25%;
-  }
-  
   .message-text {
     font-size: 14px;
+    padding-right: 55px;
+  }
+  
+  .message-options {
+    top: -30px;
+  }
+  
+  .message-delete-button,
+  .message-close-button {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .message-bubble {
-    max-width: 85%;
-    padding: 4px 5px 6px 7px;
-  }
-  
-  .message-own .message-bubble {
-    margin-left: 15%;
-  }
-  
-  .message-other .message-bubble {
-    margin-right: 15%;
+    max-width: 80%;
   }
   
   .message-text {
     font-size: 13px;
+    padding-right: 50px;
   }
   
   .message-time {
     font-size: 10px;
   }
-}
-
-@media screen and (max-width: 320px) {
-  .message-bubble {
-    max-width: 90%;
-    margin-left: 10%;
-    margin-right: 10%;
-  }
   
-  .message-text {
+  .message-status {
     font-size: 12px;
   }
 }

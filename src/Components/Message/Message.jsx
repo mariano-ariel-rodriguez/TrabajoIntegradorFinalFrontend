@@ -10,6 +10,10 @@ const Message = ({emisor, hora, id, texto, status, deleteMessageById}) => {
         setMessageSelected(true)
     }
 
+    const handleCloseSelection = () => {
+        setMessageSelected(false)
+    }
+
     // Determinar si es mensaje propio o de otro
     let messageClass;
     if (emisor === 'YO') {
@@ -24,6 +28,18 @@ const Message = ({emisor, hora, id, texto, status, deleteMessageById}) => {
         bubbleClass = 'message-bubble message-selected';
     }
 
+    // Determinar el icono de estado para mensajes propios
+    let statusIcon = null;
+    if (emisor === 'YO') {
+        if (status === 'visto') {
+            statusIcon = <i className="bi bi-check-all message-status visto"></i>
+        } else if (status === 'enviado') {
+            statusIcon = <i className="bi bi-check message-status"></i>
+        } else {
+            statusIcon = <i className="bi bi-clock message-status"></i>
+        }
+    }
+
     return (
         <div className={messageClass}>
             <div 
@@ -33,18 +49,24 @@ const Message = ({emisor, hora, id, texto, status, deleteMessageById}) => {
                 <p className="message-text">{texto}</p>
                 <div className="message-info">
                     <span className="message-time">{hora}</span>
-                    {emisor === 'YO' && (
-                        <i className="bi bi-check message-status"></i>
-                    )}
+                    {statusIcon}
                 </div>
                 
                 {message_selected && (
-                    <button 
-                        className="message-delete-button"
-                        onClick={() => {deleteMessageById(id)}}
-                    >
-                        <i className="bi bi-trash3"></i>
-                    </button>
+                    <div className="message-options">
+                        <button 
+                            className="message-delete-button"
+                            onClick={() => {deleteMessageById(id)}}
+                        >
+                            <i className="bi bi-trash3"></i>
+                        </button>
+                        <button 
+                            className="message-close-button"
+                            onClick={handleCloseSelection}
+                        >
+                            <i className="bi bi-x"></i>
+                        </button>
+                    </div>
                 )}
             </div>
         </div>

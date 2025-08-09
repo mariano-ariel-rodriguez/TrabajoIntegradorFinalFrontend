@@ -1,12 +1,24 @@
-/* MessagesList.css - Con scroll para overflow */
 .messages-list {
   flex: 1;
-  padding: 20px;
   background-color: var(--background-main);
   display: flex;
   flex-direction: column;
-  gap: 8px;
   overflow-y: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.messages-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 100%;
+}
+
+/* Estado vacío */
+.messages-list.empty {
+  justify-content: center;
 }
 
 .no-messages {
@@ -14,46 +26,68 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  color: var(--text-secondary);
-  font-size: 16px;
+  padding: 40px 20px;
 }
 
 .no-messages-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  max-width: 300px;
+}
+
+.no-messages-content i {
+  font-size: 48px;
+  color: var(--text-lighter);
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.no-messages-content span {
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.no-messages-content p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin: 0;
 }
 
 /* Responsive */
-@media screen and (max-width: 768px) {
-  .messages-list {
+@media screen and (max-width: 759px) {
+  .messages-container {
     padding: 16px;
     gap: 6px;
   }
   
-  .no-messages {
+  .no-messages-content span {
     font-size: 15px;
+  }
+  
+  .no-messages-content p {
+    font-size: 13px;
+  }
+  
+  .no-messages-content i {
+    font-size: 40px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .messages-list {
+  .messages-container {
     padding: 12px;
     gap: 4px;
   }
   
-  .no-messages {
+  .no-messages-content span {
     font-size: 14px;
   }
-}
-
-@media screen and (max-width: 320px) {
-  .messages-list {
-    padding: 8px;
-  }
   
-  .no-messages {
-    font-size: 13px;
-    padding: 0 16px;
+  .no-messages-content p {
+    font-size: 12px;
   }
 }

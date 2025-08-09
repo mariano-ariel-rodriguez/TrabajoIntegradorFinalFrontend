@@ -1,35 +1,41 @@
-/* ChatScreen.css - Sin border-radius como WhatsApp Web original */
 .chat-screen {
-  background-color: var(--background-main);
-  display: flex;
-  flex-direction: column;
-}
-
-.chat-container {
   flex: 1;
   background-color: var(--background-main);
   display: flex;
   flex-direction: column;
+  height: 100dvh;
+}
+
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .chat-header {
   background-color: var(--background-panel);
-  padding: 20px;
+  padding: 10px 16px;
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   min-height: 60px;
   flex-shrink: 0;
 }
 
 .chat-back-button {
+  display: none;
   background: none;
   border: none;
   color: var(--text-secondary);
-  font-size: 18px;
+  font-size: 20px;
   padding: 8px;
   border-radius: 50%;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .chat-back-button:hover {
@@ -41,6 +47,7 @@
   align-items: center;
   gap: 12px;
   flex: 1;
+  cursor: pointer;
 }
 
 .chat-contact-avatar {
@@ -49,47 +56,57 @@
   border-radius: 50%;
 }
 
+.chat-contact-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .chat-contact-details h1 {
   color: var(--text-primary);
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.2;
   margin: 0;
-  margin-bottom: 2px;
 }
 
 .chat-contact-status {
   font-size: 13px;
   color: var(--text-secondary);
+  margin-top: 2px;
 }
 
 .chat-actions {
   display: flex;
-  gap: 8px;
+  gap: 2px;
+  align-items: center;
 }
 
 .chat-action-button {
   background: none;
   border: none;
-  color: var(--text-secondary);
-  font-size: 14px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-weight: 400;
+  color: var(--icon-color);
+  font-size: 20px;
+  padding: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .chat-action-button:hover {
   background-color: var(--background-hover);
-  color: var(--text-primary);
 }
 
 .delete-all-button {
-  background-color: #d73502;
-  color: #ffffff;
+  color: #d73502;
 }
 
 .delete-all-button:hover {
-  background-color: #b82e02;
+  background-color: rgba(215, 53, 2, 0.1);
 }
 
 .chat-messages-area {
@@ -97,45 +114,16 @@
   display: flex;
   flex-direction: column;
   background-color: var(--background-main);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Responsive - solo ajustes de padding */
-@media screen and (max-width: 739px) {
-  .chat-header {
-    padding: 15px 20px;
+/* Mobile - Mostrar botón de volver */
+@media screen and (max-width: 759px) {
+  .chat-back-button {
+    display: flex;
   }
   
-  .chat-contact-details h1 {
-    font-size: 15px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .chat-header {
-    padding: 12px 16px;
-    min-height: 56px;
-  }
-  
-  .chat-contact-avatar {
-    width: 36px;
-    height: 36px;
-  }
-  
-  .chat-contact-details h1 {
-    font-size: 14px;
-  }
-  
-  .chat-contact-status {
-    font-size: 12px;
-  }
-  
-  .chat-action-button {
-    font-size: 12px;
-    padding: 4px 8px;
-  }
-}
-
-@media screen and (max-width: 320px) {
   .chat-header {
     padding: 8px 12px;
   }
@@ -144,7 +132,45 @@
     gap: 8px;
   }
   
-  .chat-actions {
-    gap: 4px;
+  .chat-contact-avatar {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .chat-contact-details h1 {
+    font-size: 15px;
+  }
+  
+  .chat-contact-status {
+    font-size: 12px;
+  }
+  
+  .chat-action-button {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .chat-header {
+    padding: 6px 10px;
+    min-height: 56px;
+  }
+  
+  .chat-contact-avatar {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .chat-contact-details h1 {
+    font-size: 14px;
+  }
+  
+  .chat-action-button {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    padding: 6px;
   }
 }

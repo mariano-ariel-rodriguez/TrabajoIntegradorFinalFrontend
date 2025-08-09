@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Route, Routes } from 'react-router'
+import { Route, Routes } from 'react-router-dom'
 import ContactScreen from './Screens/ContactScreen/ContactScreen'
 import ChatScreen from './Screens/ChatScreen/ChatScreen'
 import EmptyScreen from './Screens/EmptyScreen/EmptyScreen'
@@ -7,31 +7,46 @@ import Sidebar from './Components/Sidebar/Sidebar'
 
 const App = () => {
     const [isDarkMode, setIsDarkMode] = useState(false)
+    const [chatActive, setChatActive] = useState(false)
+    const [selectedContactId, setSelectedContactId] = useState(null)
 
     const toggleTheme = () => {
         setIsDarkMode(!isDarkMode)
     }
 
-    let themeClass
-    if (isDarkMode) {
-        themeClass = 'dark-mode'
-    } else {
-        themeClass = 'light-mode'
+    // Función helper para obtener las clases del layout
+    const getLayoutClass = () => {
+        if (chatActive) {
+            return 'app-layout chat-active'
+        }
+        return 'app-layout'
+    }
+
+    // Función helper para obtener la clase del tema
+    const getThemeClass = () => {
+        if (isDarkMode) {
+            return 'dark-mode'
+        }
+        return 'light-mode'
     }
 
     return (
-        <div className={themeClass}>
-            <div className="app-layout">
+        <div className={getThemeClass()}>
+            <div className={getLayoutClass()}>
                 <Sidebar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
-                <ContactScreen />
+                <ContactScreen 
+                    setChatActive={setChatActive} 
+                    selectedContactId={selectedContactId}
+                    setSelectedContactId={setSelectedContactId}
+                />
                 <Routes>
                     <Route 
                         path='/' 
-                        element={<EmptyScreen/>} 
+                        element={<EmptyScreen />} 
                     />
                     <Route 
                         path='/contact/:contact_id/messages' 
-                        element={<ChatScreen/>} 
+                        element={<ChatScreen setChatActive={setChatActive} />} 
                     />
                 </Routes>
             </div>
