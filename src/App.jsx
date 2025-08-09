@@ -14,7 +14,6 @@ const App = () => {
         setIsDarkMode(!isDarkMode)
     }
 
-    // Función helper para obtener las clases del layout
     const getLayoutClass = () => {
         if (chatActive) {
             return 'app-layout chat-active'
@@ -22,7 +21,6 @@ const App = () => {
         return 'app-layout'
     }
 
-    // Función helper para obtener la clase del tema
     const getThemeClass = () => {
         if (isDarkMode) {
             return 'dark-mode'

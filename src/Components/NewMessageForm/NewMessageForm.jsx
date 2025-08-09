@@ -7,7 +7,6 @@ const NewMessageForm = ({addNewMessage}) => {
     const handleSubmitSendMessageForm = (event) => {
         event.preventDefault()
         
-        // Verificar que el mensaje no esté vacío y no sea solo espacios
         let hasContent = false
         for (let i = 0; i < messageText.length; i++) {
             if (messageText[i] !== ' ') {
@@ -31,10 +30,12 @@ const NewMessageForm = ({addNewMessage}) => {
     return (
         <form className="new-message-form" onSubmit={handleSubmitSendMessageForm}>
             <div className="message-input-container">
+                <button type="button" className="attach-button">
+                    <i className="bi bi-plus-lg"></i>
+                </button>
                 <button type="button" className="emoji-button">
                     <i className="bi bi-emoji-smile"></i>
                 </button>
-
                 <label htmlFor="message" className="message-input-label">
                     Escribe un mensaje:
                 </label>
@@ -48,15 +49,12 @@ const NewMessageForm = ({addNewMessage}) => {
                     onChange={handleInputChange}
                     autoComplete="off"
                 />
-                
-                <button type="button" className="attach-button">
-                    <i className="bi bi-plus-lg"></i>
+                <button type="submit" className="send-button">
+                    <i className="bi bi-send-fill"></i>
                 </button>
             </div>
 
-            <button type="submit" className="send-button">
-                <i className="bi bi-send-fill"></i>
-            </button>
+            
         </form>
     )
 }

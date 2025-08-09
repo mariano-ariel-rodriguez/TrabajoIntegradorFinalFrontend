@@ -8,7 +8,6 @@
   min-height: 100vh;
 }
 
-/* Tema oscuro */
 .dark-mode .empty-screen {
   background-color: var(--background-main);
 }
@@ -41,7 +40,6 @@
   line-height: 1.2;
 }
 
-/* Tema oscuro */
 .dark-mode .empty-screen-title {
   color: var(--text-primary);
 }
@@ -54,7 +52,6 @@
   font-weight: 400;
 }
 
-/* Tema oscuro */
 .dark-mode .empty-screen-subtitle {
   color: var(--text-secondary);
 }

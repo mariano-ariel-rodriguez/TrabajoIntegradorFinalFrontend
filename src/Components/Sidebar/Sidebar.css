@@ -40,19 +40,17 @@
     position: relative;
 }
 
-/* Efecto hover */
 .sidebar-icon:hover {
     background-color: var(--background-hover);
     color: var(--text-primary);
 }
 
-/* Estado activo */
 .sidebar-icon.active {
     background-color: rgba(0, 168, 132, 0.15);
     color: var(--primary-color);
 }
 
-/* Ajustes para móvil */
+/* Responsive */
 @media screen and (max-width: 759px) {
     .sidebar {
         padding: 10px;

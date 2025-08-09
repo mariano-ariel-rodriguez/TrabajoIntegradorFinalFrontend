@@ -13,8 +13,7 @@
   background-color: var(--background-hover);
 }
 
-.contact-item:active,
-.contact-item.selected {
+.contact-item:active, .contact-item.selected {
   background-color: var(--background-hover);
 }
 

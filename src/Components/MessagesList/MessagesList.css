@@ -16,7 +16,6 @@
   min-height: 100%;
 }
 
-/* Estado vacío */
 .messages-list.empty {
   justify-content: center;
 }

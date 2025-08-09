@@ -20,8 +20,7 @@
   gap: 2px;
 }
 
-.emoji-button,
-.attach-button {
+.emoji-button, .attach-button {
   background: none;
   border: none;
   color: var(--icon-color);
@@ -36,8 +35,7 @@
   flex-shrink: 0;
 }
 
-.emoji-button:hover,
-.attach-button:hover {
+.emoji-button:hover, .attach-button:hover {
   background-color: var(--background-hover);
 }
 

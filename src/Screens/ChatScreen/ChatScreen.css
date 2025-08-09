@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   height: 100dvh;
+  position: relative;
 }
 
 .chat-container {
@@ -13,6 +14,10 @@
   height: 100%;
   position: relative;
   overflow: hidden;
+}
+
+.chat-container.with-contact-info {
+  margin-right: 400px;
 }
 
 .chat-header {
@@ -118,7 +123,25 @@
   overflow: hidden;
 }
 
-/* Mobile - Mostrar botón de volver */
+/* Responsive */
+@media screen and (max-width: 1300px) {
+  .chat-container.with-contact-info {
+    display: none;
+    margin-right: 0;
+  }
+  
+  .chat-screen {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .chat-container.with-contact-info {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 759px) {
   .chat-back-button {
     display: flex;

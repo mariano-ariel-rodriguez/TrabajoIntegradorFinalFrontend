@@ -14,9 +14,8 @@
     overflow: hidden;
 }
 
-/* Responsive Design - coordinado con index.css */
+/* Responsive */
 
-/* Mobile (320px - 759px) - manejado por index.css */
 @media (max-width: 759px) {
     .contact-screen {
         width: 100%;
@@ -29,10 +28,8 @@
     }
 }
 
-/* Tablet/Desktop (760px+) - manejado por index.css */
 @media (min-width: 760px) {
     .contact-screen {
-        /* El ancho está controlado por index.css */
         height: 100vh;
     }
 }

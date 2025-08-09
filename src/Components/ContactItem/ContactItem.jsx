@@ -3,10 +3,9 @@ import { Link } from 'react-router-dom';
 import './ContactItem.css';
 
 const ContactItem = ({ contact, setChatActive, selectedContactId, setSelectedContactId }) => {
-    // Verificar si este contacto está seleccionado
+    
     const isSelected = Number(selectedContactId) === Number(contact.id);
     
-    // Obtener el último mensaje para mostrarlo
     let lastMessage;
     if (contact.messages && contact.messages.length > 0) {
         const totalMessages = contact.messages.length;    
@@ -16,7 +15,6 @@ const ContactItem = ({ contact, setChatActive, selectedContactId, setSelectedCon
         lastMessage = contact.description;
     }
 
-    // Determinar la clase CSS del indicador de estado
     let statusClass;
     if (contact.connectionStatus === 'online') {
         statusClass = 'status-online';
@@ -24,13 +22,11 @@ const ContactItem = ({ contact, setChatActive, selectedContactId, setSelectedCon
         statusClass = 'status-offline';
     }
     
-    // Determinar la clase del item
     let itemClass = 'contact-item';
     if (isSelected) {
         itemClass = 'contact-item selected';
     }
 
-    // Manejar el click para activar el chat en móvil y seleccionar contacto
     const handleClick = () => {
         if (setChatActive) {
             setChatActive(true);
@@ -68,4 +64,4 @@ const ContactItem = ({ contact, setChatActive, selectedContactId, setSelectedCon
     );
 };
 
-export default ContactItem;
+export default ContactItem

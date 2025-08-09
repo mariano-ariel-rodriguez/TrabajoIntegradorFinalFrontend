@@ -17,7 +17,6 @@
     gap: 20px;
     padding: 16px 20px;
     background-color: var(--background-panel);
-    border-bottom: 1px solid var(--border-color);
     min-height: 60px;
 }
 
@@ -50,7 +49,7 @@
 .contact-info-content {
     flex: 1;
     overflow-y: auto;
-    background-color: var(--background-main);
+    background-color: var(--background-panel);
 }
 
 .contact-info-profile {
@@ -75,6 +74,10 @@
     margin: 0 0 8px 0;
 }
 
+.dark-mode .contact-info-name {
+    color: var(--text-contact-info-name);
+}
+
 .contact-info-status {
     font-size: 14px;
     padding: 4px 12px;
@@ -94,12 +97,13 @@
 .contact-info-section {
     background-color: var(--background-panel);
     padding: 14px 30px 20px;
-    margin-top: 10px;
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .contact-info-label {
     font-size: 14px;
-    color: var(--primary-color);
+    color: var(--text-info-label);
     margin: 0 0 8px 0;
     font-weight: 500;
 }
@@ -112,11 +116,16 @@
 }
 
 /* Responsive */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1300px) {
     .contact-info-panel {
-        width: 350px;
+        position: static;
+        width: 100%;
+        flex: 1;
+        border-left: none;
     }
-    
+}
+
+@media screen and (max-width: 1200px) {
     .contact-info-avatar {
         width: 150px;
         height: 150px;
@@ -125,8 +134,13 @@
 
 @media screen and (max-width: 759px) {
     .contact-info-panel {
-        width: 100%;
         position: fixed;
+        top: 0;
+        left: 60px;
+        right: 0;
+        width: auto;
+        height: 100dvh;
+        z-index: 20;
     }
     
     .contact-info-avatar {

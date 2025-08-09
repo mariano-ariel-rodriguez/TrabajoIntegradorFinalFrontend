@@ -2,7 +2,6 @@ import React from 'react'
 import './Sidebar.css'
 
 const Sidebar = ({ isDarkMode, toggleTheme }) => {
-    // Determinar qué icono mostrar
     let themeIcon
     if (isDarkMode) {
         themeIcon = <i className="bi bi-sun"></i>

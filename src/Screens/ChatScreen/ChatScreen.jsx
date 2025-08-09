@@ -41,7 +41,6 @@ const ChatScreen = ({ setChatActive }) => {
     }
 
     const addNewMessage = (text) => {
-        // Obtener hora actual en formato 24 horas
         const now = new Date()
         const currentTime = now.toLocaleTimeString('es-AR', { 
             hour: '2-digit', 
@@ -66,16 +65,17 @@ const ChatScreen = ({ setChatActive }) => {
         setMessages([])
     }
 
-    // Manejar el botón de volver
     const handleBackClick = () => {
         if (setChatActive) {
             setChatActive(false)
         }
     }
 
-    // Manejar mostrar/ocultar info del contacto
     const handleShowContactInfo = () => {
         setShowContactInfo(true)
+        if (setChatActive) {
+            setChatActive(true)
+        }
     }
 
     const handleCloseContactInfo = () => {
@@ -91,7 +91,6 @@ const ChatScreen = ({ setChatActive }) => {
         }
     }
 
-    // Valores por defecto para evitar ternarios
     let avatarSrc = ''
     let avatarAlt = ''
     let contactName = ''
@@ -104,7 +103,7 @@ const ChatScreen = ({ setChatActive }) => {
 
     return (
         <div className="chat-screen">
-            <div className="chat-container">
+            <div className={showContactInfo ? "chat-container with-contact-info" : "chat-container"}>
                 <div className="chat-header">
                     <Link to="/" className="chat-back-button" onClick={handleBackClick}>
                         <i className="bi bi-arrow-left"></i>
@@ -144,14 +143,14 @@ const ChatScreen = ({ setChatActive }) => {
                     <MessagesList messages={messages} deleteMessageById={deleteMessageById} />
                     <NewMessageForm addNewMessage={addNewMessage} />
                 </div>
-
-                {showContactInfo && (
-                    <ContactInfo 
-                        contact={contact_selected}
-                        onClose={handleCloseContactInfo}
-                    />
-                )}
             </div>
+
+            {showContactInfo && (
+                <ContactInfo 
+                    contact={contact_selected}
+                    onClose={handleCloseContactInfo}
+                />
+            )}
         </div>
     )
 }

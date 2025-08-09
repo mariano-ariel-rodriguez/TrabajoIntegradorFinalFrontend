@@ -93,8 +93,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.message-delete-button,
-.message-close-button {
+.message-delete-button, .message-close-button {
   background-color: var(--background-hover);
   color: var(--text-primary);
   border: none;
@@ -133,8 +132,7 @@
     top: -30px;
   }
   
-  .message-delete-button,
-  .message-close-button {
+  .message-delete-button, .message-close-button {
     width: 28px;
     height: 28px;
     font-size: 12px;

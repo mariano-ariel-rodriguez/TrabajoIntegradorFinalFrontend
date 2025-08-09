@@ -23,4 +23,4 @@ const ContactList = ({ contacts, setChatActive, selectedContactId, setSelectedCo
   );
 };
 
-export default ContactList;
+export default ContactList

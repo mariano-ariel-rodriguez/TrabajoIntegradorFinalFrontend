@@ -14,7 +14,6 @@ const Message = ({emisor, hora, id, texto, status, deleteMessageById}) => {
         setMessageSelected(false)
     }
 
-    // Determinar si es mensaje propio o de otro
     let messageClass;
     if (emisor === 'YO') {
         messageClass = 'message-container message-own';
@@ -22,13 +21,11 @@ const Message = ({emisor, hora, id, texto, status, deleteMessageById}) => {
         messageClass = 'message-container message-other';
     }
 
-    // Agregar clase si está seleccionado
     let bubbleClass = 'message-bubble';
     if (message_selected) {
         bubbleClass = 'message-bubble message-selected';
     }
 
-    // Determinar el icono de estado para mensajes propios
     let statusIcon = null;
     if (emisor === 'YO') {
         if (status === 'visto') {
