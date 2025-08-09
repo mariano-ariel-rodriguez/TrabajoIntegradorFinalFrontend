@@ -21,4 +21,4 @@ const ContactScreen = ({ setChatActive, selectedContactId, setSelectedContactId 
     );
 };
 
-export default ContactScreen;
+export default ContactScreen

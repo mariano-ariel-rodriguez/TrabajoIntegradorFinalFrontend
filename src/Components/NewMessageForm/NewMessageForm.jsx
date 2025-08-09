@@ -4,18 +4,19 @@ import './NewMessageForm.css'
 const NewMessageForm = ({addNewMessage}) => {
     const [messageText, setMessageText] = useState('')
 
+    const hasContent = (text) => {
+        for (let i = 0; i < text.length; i++) {
+            if (text[i] !== ' ') {
+                return true
+            }
+        }
+        return false
+    }
+
     const handleSubmitSendMessageForm = (event) => {
         event.preventDefault()
         
-        let hasContent = false
-        for (let i = 0; i < messageText.length; i++) {
-            if (messageText[i] !== ' ') {
-                hasContent = true
-                break
-            }
-        }
-        
-        if (!hasContent || messageText === '') {
+        if (!hasContent(messageText) || messageText === '') {
             return
         }
         
@@ -53,8 +54,6 @@ const NewMessageForm = ({addNewMessage}) => {
                     <i className="bi bi-send-fill"></i>
                 </button>
             </div>
-
-            
         </form>
     )
 }

@@ -95,7 +95,7 @@ body {
 .empty-screen, .chat-screen {
   position: absolute;
   top: 0;
-  left: 60px; /* Ancho del sidebar */
+  left: 60px;
   right: 0;
   height: 100dvh;
   background-color: var(--background-panel);
@@ -112,6 +112,16 @@ body {
 }
 
 /* Responsive */
+@media screen and (max-width: 365px) {
+  .chat-active .sidebar {
+    display: none;
+  }
+  
+  .chat-active .empty-screen, .chat-active .chat-screen {
+    left: 0;
+  }
+}
+
 @media screen and (min-width: 760px) {
   .sidebar {
     width: 60px;
