@@ -8,11 +8,11 @@
 }
 
 .contact-list-header {
-  padding: 16px 20px;
+  height: 60px;
+  padding: 0 20px;
   background-color: var(--background-panel);
   border-bottom: 1px solid var(--border-color);
   flex-shrink: 0;
-  min-height: 60px;
   display: flex;
   align-items: center;
 }
@@ -35,8 +35,8 @@
 /* Responsive */
 @media screen and (max-width: 759px) {
   .contact-list-header {
-    padding: 12px 16px;
-    min-height: 50px;
+    height: 50px;
+    padding: 0 16px;
   }
   
   .contact-list-title {

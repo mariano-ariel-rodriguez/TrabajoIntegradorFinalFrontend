@@ -94,7 +94,7 @@
     min-height: 56px;
   }
   
-  .message-input-wrapper {
+  .message-input-container {
     min-height: 38px;
   }
   
@@ -128,7 +128,7 @@
     min-height: 52px;
   }
   
-  .message-input-wrapper {
+  .message-input-container {
     min-height: 36px;
   }
   
@@ -153,5 +153,71 @@
     width: 32px;
     height: 30px;
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 365px) {
+  .new-message-form {
+    padding: 4px 6px;
+    min-height: 48px;
+  }
+  
+  .message-input-container {
+    min-height: 34px;
+    gap: 1px;
+    padding: 0 2px;
+  }
+  
+  .attach-button {
+    display: none;
+  }
+  
+  .emoji-button {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+  
+  .message-input {
+    font-size: 12px;
+    padding: 4px 2px;
+    min-width: 0;
+  }
+  
+  .send-button {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .new-message-form {
+    padding: 3px 4px;
+    min-height: 44px;
+  }
+  
+  .message-input-container {
+    min-height: 32px;
+    gap: 0;
+  }
+  
+  .emoji-button {
+    display: none;
+  }
+  
+  .message-input {
+    font-size: 11px;
+    padding: 3px 2px;
+  }
+  
+  .message-input::placeholder {
+    font-size: 10px;
+  }
+  
+  .send-button {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
   }
 }
